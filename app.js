@@ -18,7 +18,7 @@ app.use('/users', usersRoute);
 
 // Routes
 app.get('/', (req, res) =>{
-    res.send('We are on home');
+    res.send('Welcome to JSMA REST API! We have 2 routes: posts and users');
 })
 
 
