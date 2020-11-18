@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const port = 3000;
+const fs = require('fs')
 require('dotenv/config');
 
 // Middlewares
@@ -18,7 +19,18 @@ app.use('/users', usersRoute);
 
 // Routes
 app.get('/', (req, res) =>{
-    res.send('Welcome to JSMA REST API! We have 2 routes: posts and users');
+    // res.send('Welcome to JSMA REST API! We have 2 routes: posts and users');
+
+    res.writeHead(200, {'Content-type': 'text/css'});
+    fs.readFile('./index.html', null, (err, data) =>{
+        if(err){
+            res.writeHead(404);
+            res.write('File not found');
+        }else{
+            res.write(data)
+        }
+        res.end();
+    })
 })
 
 
