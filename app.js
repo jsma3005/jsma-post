@@ -21,7 +21,7 @@ app.use('/users', usersRoute);
 app.get('/', (req, res) =>{
     // res.send('Welcome to JSMA REST API! We have 2 routes: posts and users');
 
-    res.writeHead(200, {'Content-type': 'text/css'});
+    res.writeHead(200, {'Content-type': 'text/html'});
     fs.readFile('./index.html', null, (err, data) =>{
         if(err){
             res.writeHead(404);
