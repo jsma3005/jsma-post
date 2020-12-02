@@ -14,8 +14,8 @@ const PostSchema = mongoose.Schema({
         default: 'https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2019/07/Man-Silhouette.jpg'
     },
     date: {
-        type: Date,
-        default: Date().toLocaleString()
+        type: String,
+        default: `${new Date().getDate()}.${new Date().getMonth() + 1}.${new Date().getFullYear()} ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`
     }
 })
 

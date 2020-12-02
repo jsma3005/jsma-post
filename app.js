@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const port = 4000;
+const port = 5000;
 const fs = require('fs')
 require('dotenv/config');
 
