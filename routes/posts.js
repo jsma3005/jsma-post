@@ -1,5 +1,4 @@
 const express = require('express');
-const { updateOne } = require('../models/Post');
 const router = express.Router();
 const Post = require('../models/Post');
 
@@ -19,7 +18,8 @@ router.get('/', async (req, res) =>{
 router.post('/', async (req, res) =>{
     const post = new Post({
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        img: req.body.img
     })
 
     try{
@@ -54,7 +54,7 @@ router.delete('/:postId', async (req, res) =>{
 // Update a post
 router.patch('/:postId', async (req, res) =>{
     try{
-        const updatedPost = await Post.update({_id: req.params.postId}, {$set: {title: req.body.title, description: req.body.description}})
+        const updatedPost = await Post.update({_id: req.params.postId}, {$set: {title: req.body.title, description: req.body.description, img: req.body.img}})
         res.json(updatedPost)
     }catch(err){
         res.json({message: err})
