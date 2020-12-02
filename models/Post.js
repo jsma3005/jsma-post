@@ -15,7 +15,7 @@ const PostSchema = mongoose.Schema({
     },
     date: {
         type: Date,
-        default: new Date().toLocaleString()
+        default: Date().toLocaleString()
     }
 })
 
