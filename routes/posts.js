@@ -5,8 +5,10 @@ const Post = require('../models/Post');
 
 // GET BACK ALL THE POSTS
 router.get('/', async (req, res) =>{
+    const { page = 1, limit = 10 } = req.query;
+
     try{
-        const posts = await Post.find();
+        const posts = await Post.find().limit(limit * 1).skip((page - 1) * limit).exec();
         res.json(posts); 
     }catch(err){
         res.json({message: err})
@@ -32,6 +34,7 @@ router.post('/', async (req, res) =>{
 
 // SPECIFIC POST
 router.get('/:postId', async (req, res) =>{
+    
     try{
         const post = await Post.findById(req.params.postId);
         res.json(post);
