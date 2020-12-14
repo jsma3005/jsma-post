@@ -7,7 +7,7 @@ const port = 5000;
 const fs = require('fs')
 require('dotenv/config');
 
-// Middlewares
+// Middlewaress
 app.use(cors());
 app.use(bodyParser.json());
 
